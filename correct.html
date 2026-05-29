@@ -15,15 +15,15 @@
         body {
             background-color: #f4f7f6;
             color: #333;
-            padding-bottom: 40px;
+            padding-bottom: 50px;
         }
 
         /* Navigation Bar - Background White, Buttons Blue */
         nav {
             background-color: #ffffff;
-            padding: 15px;
+            padding: 18px 15px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             display: block;
         }
 
@@ -31,7 +31,7 @@
         .nav-container {
             display: block;
             width: 100%;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             text-align: center;
         }
@@ -40,102 +40,109 @@
             background-color: #3498db;
             color: white;
             text-decoration: none;
-            padding: 10px 15px;
-            margin: 0 5px;
+            padding: 14px 24px;
+            margin: 0 8px;
             font-weight: bold;
-            border-radius: 5px;
-            transition: background 0.3s;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             display: inline-block;
-            font-size: 14px;
+            font-size: 19px;
+            box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
         }
 
         nav a:hover, nav a.active {
             background-color: #2980b9;
+            box-shadow: 0 4px 8px rgba(41, 128, 185, 0.4);
+            transform: translateY(-1px);
         }
 
         /* Container */
         .container {
-            max-width: 800px;
-            margin: 30px auto;
+            max-width: 880px;
+            margin: 35px auto;
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
 
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             border-bottom: 2px solid #eee;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
         }
 
         header h1 {
             color: #2c3e50;
-            font-size: 24px;
-            margin-bottom: 5px;
+            font-size: 32px;
+            margin-bottom: 10px;
         }
 
         header p {
             color: #7f8c8d;
-            font-size: 14px;
+            font-size: 18px;
         }
 
         /* Score Dashboard */
         .score-board {
             background: #e8f4fd;
             color: #2980b9;
-            padding: 15px;
+            padding: 20px;
             border-radius: 8px;
             text-align: center;
-            font-size: 18px;
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         /* Quiz Section */
         .quiz-container {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 30px;
         }
 
         .question-block {
             background: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 5px solid #3498db;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 6px solid #3498db;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
         .question-title {
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-weight: bold;
+            margin-bottom: 20px;
             color: #34495e;
+            font-size: 20px;
         }
 
         /* Word Tabs (Buttons) */
         .word-pool {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 15px;
-            min-height: 40px;
+            gap: 12px;
+            margin-bottom: 22px;
+            min-height: 50px;
         }
 
         .word-tab {
             background-color: #fff;
             border: 2px solid #bdc3c7;
-            padding: 8px 14px;
-            border-radius: 20px;
+            padding: 12px 20px;
+            border-radius: 28px;
             cursor: pointer;
             user-select: none;
             transition: all 0.2s;
-            font-size: 15px;
+            font-size: 19px;
+            font-weight: 500;
         }
 
         .word-tab:hover {
             border-color: #3498db;
             background-color: #f7f9fa;
+            transform: translateY(-1px);
         }
 
         .word-tab.used {
@@ -149,22 +156,23 @@
         .answer-zone {
             background: #fff;
             border: 2px dashed #3498db;
-            padding: 12px;
+            padding: 18px;
             border-radius: 8px;
-            min-height: 50px;
+            min-height: 65px;
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 12px;
             align-items: center;
         }
 
         .answer-word {
             background-color: #3498db;
             color: white;
-            padding: 6px 12px;
-            border-radius: 15px;
+            padding: 10px 16px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 15px;
+            font-size: 19px;
+            font-weight: 500;
             animation: fadeIn 0.2s;
         }
 
@@ -174,9 +182,10 @@
 
         /* Results styling */
         .result-status {
-            margin-top: 10px;
+            margin-top: 18px;
             font-weight: bold;
             display: none;
+            font-size: 18px;
         }
         .correct { color: #27ae60; }
         .wrong { color: #c0392b; }
@@ -184,17 +193,17 @@
         /* Action Buttons */
         .control-buttons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 35px;
         }
 
         .btn {
-            padding: 12px 30px;
-            font-size: 16px;
+            padding: 16px 40px;
+            font-size: 20px;
             font-weight: bold;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
             transition: background 0.2s;
         }
@@ -216,7 +225,7 @@
         /* Responsive Design (Phone View) */
         @media (max-width: 600px) {
             nav {
-                padding: 10px 5px;
+                padding: 12px 4px;
             }
             
             .nav-container {
@@ -226,32 +235,39 @@
             }
             
             nav a {
-                padding: 8px 4px;
+                padding: 10px 2px;
                 margin: 0;
-                font-size: 11px; /* 4 ခုလုံး ဖုန်းမျက်နှာပြင်မှာ ကွက်တိဆန့်အောင် စာလုံးအရွယ်အစားညှိထားသည် */
+                font-size: 12px;
                 flex: 1;
                 text-align: center;
                 white-space: nowrap;
+                border-radius: 5px;
             }
 
             .container {
-                margin: 15px;
-                padding: 15px;
+                margin: 10px;
+                padding: 20px;
             }
 
-            header h1 { font-size: 20px; }
+            header h1 { font-size: 24px; }
+            header p { font-size: 15px; }
+            .score-board { font-size: 20px; padding: 14px; }
+            .question-title { font-size: 18px; }
 
             .word-tab, .answer-word {
-                padding: 6px 10px;
-                font-size: 13px;
+                padding: 10px 14px;
+                font-size: 16px;
             }
             
             .control-buttons {
                 flex-direction: column;
+                gap: 12px;
             }
             
             .btn {
                 width: 100%;
+                font-size: 18px;
+                padding: 14px;
             }
         }
 
@@ -263,7 +279,7 @@
 </head>
 <body>
 
-    <!-- Navigation Bar - White Background, Blue Buttons -->
+    <!-- Navigation Bar -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="active">Home</a>
@@ -277,7 +293,7 @@
         <header>
             <h1>Subject - Workplace English</h1>
             <p>Lecture - Daw Mon Mon Khaine</p>
-            <p style="margin-top: 8px; font-weight: bold; color: #34495e;">I. Put the words in the sentences into the correct order. (10 marks)</p>
+            <p style="margin-top: 12px; font-weight: bold; color: #34495e; font-size: 19px;">I. Put the words in the sentences into the correct order. (10 marks)</p>
         </header>
 
         <!-- Score Board -->
@@ -298,23 +314,22 @@
     </div>
 
     <script>
-        // File ထဲမှ မူရင်းမေးခွန်းများနှင့် အဖြေမှန်များ
+        // မေးခွန်းပုံစံဖြစ်သော အမေးစာကြောင်းများ (Q4, Q8, Q10) အားလုံးတွင် "?" သင်္ကေတကို သီးသန့် Tab တစ်ခုအဖြစ် ထည့်သွင်းပေးထားပါသည်
         const quizData = [
             { id: 1, scrambled: "sorry moment busy but Mr at I'm Carter's line is the", correct: "I'm sorry but Mr Carter's line is busy at the moment." },
             { id: 2, scrambled: "boss later will My call back", correct: "My boss will call back later." },
             { id: 3, scrambled: "afraid on a he's business I'm trip", correct: "I'm afraid he's on a business trip." },
-            { id: 4, scrambled: "you back morning call Can tomorrow", correct: "Can you call back tomorrow morning?" },
+            { id: 4, scrambled: "you back morning call Can tomorrow ?", correct: "Can you call back tomorrow morning?" },
             { id: 5, scrambled: "put through the you to Sales I'll Department", correct: "I'll put you through to the Sales Department." },
             { id: 6, scrambled: "Chairman It will an to our opportunity be for you meet", correct: "It will be an opportunity for you to meet our Chairman." },
             { id: 7, scrambled: "Thursday like to would invite you meeting to a on We", correct: "We would like to invite you to a meeting on Thursday" },
-            { id: 8, scrambled: "lunch you like Would to come?", correct: "Would you like to come lunch?" },
+            { id: 8, scrambled: "lunch you like Would to come ?", correct: "Would you like to come lunch?" },
             { id: 9, scrambled: "hope able you We are to conference attend the", correct: "We hope you are able to attend the conference" },
-            { id: 10, scrambled: "Are o'clock free at 6 meeting you for a", correct: "Are you free at 6 o'clock for a meeting?" }
+            { id: 10, scrambled: "Are o'clock free at 6 meeting you for a ?", correct: "Are you free at 6 o'clock for a meeting?" }
         ];
 
         let userAnswers = {};
 
-        // Array အား Random နေရာလွှဲပြောင်းပေးမည့် လုပ်ဆောင်ချက် (Fisher-Yates Shuffle)
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -323,25 +338,22 @@
             return array;
         }
 
-        // ဉာဏ်စမ်းပဟေဠိကို စတင်ဖန်တီးပေးသည့် လုပ်ဆောင်ချက်
+        // စကားလုံးများကို ရောမွှေရာတွင် သင်္ကေတများပါ တစ်ခါတည်း ပါသွားစေရန်
         function initQuiz() {
             const container = document.getElementById('quiz-container');
             container.innerHTML = '';
 
-            // မေးခွန်းများကို အပေါ်အောက် Random ရောမွှေရန်အတွက် quizData အား Shuffle လုပ်သည်
-            // သို့သော် မူရင်းနံပါတ်စဉ် (1 to 10) အတိုင်း မပြောင်းလဲစေရန် လုံခြုံစွာ ကိုင်တွယ်သည်
             const shuffledQuiz = shuffleArray([...quizData]);
 
             shuffledQuiz.forEach((q, index) => {
                 userAnswers[q.id] = [];
+                // scrambled ထဲက စာလုံးများကို ခွဲထုတ်ခြင်း
                 const words = q.scrambled.split(' ');
 
                 const block = document.createElement('div');
                 block.className = 'question-block';
                 block.id = `block-${q.id}`;
 
-                // ပြသမည့် မေးခွန်းနံပါတ်ကို loop index အတိုင်း စဉ်ပေးနိုင်သည် (သို့မဟုတ် q.id အတိုင်း ထားနိုင်သည်)
-                // ဤနေရာတွင် မေးခွန်းများကို Random ပြောင်းလဲမှု ပိုမိုသိသာစေရန် လက်ရှိ စဉ်ထားသော အစီအစဉ်အတိုင်း (index + 1) ပြပေးထားပါသည်
                 block.innerHTML = `
                     <div class="question-title">Question ${index + 1}: Put in order:</div>
                     <div class="word-pool" id="pool-${q.id}"></div>
@@ -384,7 +396,6 @@
             userAnswers[qId].push({ word: word, index: index });
         }
 
-        // စာကြောင်းများကို ပုံစံညှိရန် လုပ်ဆောင်ချက် (စာလုံးကြီး/သေး ပြောင်းခြင်းနှင့် အစက်အပြောက်/ပုဒ်ဖြတ်ပုဒ်ရပ်များ ဖယ်ရှားခြင်း)
         function cleanText(text) {
             return text
                 .toLowerCase()                      
@@ -393,7 +404,6 @@
                 .trim();                            
         }
 
-        // ပြင်ဆင်ထားသော အဖြေစစ်စနစ်
         function checkAnswers() {
             let totalScore = 0;
 
@@ -401,7 +411,7 @@
                 const zone = document.getElementById(`zone-${q.id}`);
                 const statusDiv = document.getElementById(`status-${q.id}`);
                 
-                if (!zone) return; // random အစီအစဉ်ကြောင့် လုံခြုံရေးအတွက် စစ်ဆေးခြင်း
+                if (!zone) return; 
 
                 const currentAnswerNodes = zone.querySelectorAll('.answer-word');
                 let userSentence = [];
@@ -429,13 +439,9 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Try Again နှိပ်လျှင် Page ကို Refresh မလုပ်တော့ဘဲ မေးခွန်းများကို Random ပြန်စီပြီး Quiz ကို Reset လုပ်ပေးရန်
         function resetQuiz() {
-            // Score သုည ပြန်လုပ်မယ်
             document.getElementById('score-display').textContent = 0;
-            // မေးခွန်းများကို အသစ်တစ်ဖန် ရောမွှေပြီး ပြန်ပွင့်စေမယ်
             initQuiz();
-            // ထိပ်ဆုံးကို Scroll ဆွဲတင်ပေးမယ်
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
