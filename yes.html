@@ -27,7 +27,7 @@
             padding-bottom: 60px;
         }
 
-        /* Navigation Bar (အမြဲတမ်း တစ်တန်းတည်း Horizontal ဖြစ်စေရန်) */
+        /* Navigation Bar (Always Horizontal) */
         nav {
             background-color: var(--primary-color);
             padding: 12px 10px;
@@ -35,12 +35,11 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            overflow-x: auto; /* Phone view တွင် နေရာမဆန့်ပါက ဘေးတိုက် Scroll လုပ်နိုင်ရန် */
-            white-space: nowrap; /* စာလုံးများကို အောက်ကြောင်းမဆင်းစေရန် */
+            overflow-x: auto;
+            white-space: nowrap;
             -webkit-overflow-scrolling: touch;
         }
 
-        /* Scrollbar အား ဖျောက်ထားရန် (အမြင်လှပစေရန်) */
         nav::-webkit-scrollbar {
             display: none;
         }
@@ -266,12 +265,12 @@
     </div>
 
     <script>
-        // Quiz Data split into 5 Sections
+        // မေးခွန်းများကို File ပါအတိုင်း တိကျစွာ Section ၅ ခု ခွဲခြားထားခြင်း
         const quizData = [
             {
                 title: "I. Which of the following statements do you agree with? Write (Yes) if you agree or (No) if you do not agree.",
                 questions: [
-                    { type: 'radio', q: "You need to apologize if the subject is complex.", options: ["Yes", "No"], ans: "No" },
+                    { type: 'radio', q: "You need to apologize if. the subject is complex.", options: ["Yes", "No"], ans: "No" },
                     { type: 'radio', q: "You should say how long your presentation will last at the beginning.", options: ["Yes", "No"], ans: "Yes" },
                     { type: 'radio', q: "You should signpost and summarize for each of the main points.", options: ["Yes", "No"], ans: "Yes" },
                     { type: 'radio', q: "Paraphrasing should be avoided in your question and answer session.", options: ["Yes", "No"], ans: "No" },
@@ -282,7 +281,7 @@
                     { type: 'radio', q: "When you have a large vocabulary, you should use it.", options: ["Yes", "No"], ans: "No" },
                     { type: 'radio', q: "We can criticize our audience.", options: ["Yes", "No"], ans: "No" },
                     { type: 'radio', q: "Choosing the right and simple words are the best.", options: ["Yes", "No"], ans: "Yes" },
-                    { type: 'radio', q: "Talking too fast is very good to show your good language skills.", options: ["Yes", "No"], ans: "No" },
+                    { type: 'radio', q: "Talking too fast is very good to show your good language kills.", options: ["Yes", "No"], ans: "No" },
                     { type: 'radio', q: "Rhetorical questions can be an effective communication tool during your presentation.", options: ["Yes", "No"], ans: "Yes" },
                     { type: 'radio', q: "You should use open arms gesture while giving a presentation.", options: ["Yes", "No"], ans: "Yes" },
                     { type: 'radio', q: "Dramatic structures pattern is very useful tool to make an awesome presentation.", options: ["Yes", "No"], ans: "Yes" },
@@ -290,31 +289,31 @@
                 ]
             },
             {
-                title: "II. Determine whether the action described belongs to Before (B), During (D) or After (A) the lecture.",
+                title: "II. Determine whether the action described happens Before note taking (B), During note taking (D) and After note taking (A).",
                 questions: [
                     { type: 'radio', q: "If in a lecture look at the course outline to see what has been covered, what will be covered, and how it all fits together.", options: ["B", "D", "A"], ans: "B" },
-                    { type: 'radio', q: "Talk with other students about the lecture.", options: ["B", "D", "A"], ans: "A" },
+                    { type: 'radio', q: "Talk with other students about the lecture", options: ["B", "D", "A"], ans: "A" },
                     { type: 'radio', q: "Make a habit of carrying out short weekly reviews of your notes.", options: ["B", "D", "A"], ans: "A" },
                     { type: 'radio', q: "Highlight key points from your notes for exam preparation.", options: ["B", "D", "A"], ans: "A" },
-                    { type: 'radio', q: "Write notes in your own words.", options: ["B", "D", "A"], ans: "D" },
-                    { type: 'radio', q: "Leave space on the side for expanding your notes when you have more time.", options: ["B", "D", "A"], ans: "D" },
-                    { type: 'radio', q: "Read the material that will be covered in the upcoming lecture.", options: ["B", "D", "A"], ans: "B" },
-                    { type: 'radio', q: "Date and give a title to each set of notes and keep them separate for each course you are taking.", options: ["B", "D", "A"], ans: "D" },
-                    { type: 'radio', q: "Number your pages for easy reference and linking of concepts.", options: ["B", "D", "A"], ans: "B" },
-                    { type: 'radio', q: "Read over your notes from the last lecture.", options: ["B", "D", "A"], ans: "B" },
-                    { type: 'radio', q: "Sit where you can clearly see and hear the lecture presentation without distractions.", options: ["B", "D", "A"], ans: "D" },
-                    { type: 'radio', q: "Remember to include the correct bibliographical information for all sources.", options: ["B", "D", "A"], ans: "B" },
+                    { type: 'radio', q: "Write notes in your own words", options: ["B", "D", "A"], ans: "D" },
+                    { type: 'radio', q: "Leave space on the side for expanding your notes when you have more time", options: ["B", "D", "A"], ans: "D" },
+                    { type: 'radio', q: "Read the material that will be covered in the upcoming lecture", options: ["B", "D", "A"], ans: "B" },
+                    { type: 'radio', q: "Date and give a title to each set of notes and keep them separate for each course you are taking", options: ["B", "D", "A"], ans: "D" },
+                    { type: 'radio', q: "Number your pages for easy reference and linking of concepts", options: ["B", "D", "A"], ans: "B" },
+                    { type: 'radio', q: "Read over your notes from the last lecture", options: ["B", "D", "A"], ans: "B" },
+                    { type: 'radio', q: "Sit where you can clearly see and hear the lecture presentation without distractions", options: ["B", "D", "A"], ans: "D" },
+                    { type: 'radio', q: "Remember to include the correct bibliographical information for all sources", options: ["B", "D", "A"], ans: "B" },
                     { type: 'radio', q: "Review and reflect on your notes soon after lectures to consolidate your understanding.", options: ["B", "D", "A"], ans: "A" },
                     { type: 'radio', q: "Form questions on your notes to find the significance of the content and its application to other fields of knowledge.", options: ["B", "D", "A"], ans: "A" },
-                    { type: 'radio', q: "Review and expand your notes by filling in the missing gaps, correcting errors, and making sure that you understand all abbreviation.", options: ["B", "D", "A"], ans: "A" },
-                    { type: 'radio', q: "Practise reciting the information using only keywords.", options: ["B", "D", "A"], ans: "A" },
-                    { type: 'radio', q: "Record definition of technical terms exactly given.", options: ["B", "D", "A"], ans: "D" },
-                    { type: 'radio', q: "Prepare to label your notes to identify them as author's direct quotations or your own comments.", options: ["B", "D", "A"], ans: "B" },
-                    { type: 'radio', q: "Use keywords such as 'consequently' or 'therefore' for summaries.", options: ["B", "D", "A"], ans: "D" },
-                    { type: 'radio', q: "Become acquainted with symbols and abbreviations to help you to take notes efficiently.", options: ["B", "D", "A"], ans: "B" },
-                    { type: 'radio', q: "Use different colors, symbols or underlying to highlight points related to important themes.", options: ["B", "D", "A"], ans: "D" },
-                    { type: 'radio', q: "Include lectures' examples of abstract ideas to help jog your memory of the concept.", options: ["B", "D", "A"], ans: "D" },
-                    { type: 'radio', q: "Use the time when your lecture pauses during a presentation to review your notes.", options: ["B", "D", "A"], ans: "D" }
+                    { type: 'radio', q: "Review and expand your notes by filling in the missing gaps, correcting errors, and making sure that you understand all abbreviation. (For Unseen)", options: ["B", "D", "A"], ans: "A" },
+                    { type: 'radio', q: "Practise reciting the information using only keywords. (For Unseen)", options: ["B", "D", "A"], ans: "A" },
+                    { type: 'radio', q: "Record definition of technical terms exactly given. (For Unseen)", options: ["B", "D", "A"], ans: "D" },
+                    { type: 'radio', q: "Prepare to label your notes to identify them as author's direct quotations or your own comments. (For Unseen)", options: ["B", "D", "A"], ans: "B" },
+                    { type: 'radio', q: "Use keywords such as 'consequently' or 'therefore' for summaries. (For Unseen)", options: ["B", "D", "A"], ans: "D" },
+                    { type: 'radio', q: "Become acquainted with symbols and abbreviations to help you to take notes efficiently. (For Unseen)", options: ["B", "D", "A"], ans: "B" },
+                    { type: 'radio', q: "Use different colors, symbols or underlying to highlight points related to important themes. (For Unseen)", options: ["B", "D", "A"], ans: "D" },
+                    { type: 'radio', q: "Include lectures' examples of abstract ideas to help jog your memory of the concept. (For Unseen)", options: ["B", "D", "A"], ans: "D" },
+                    { type: 'radio', q: "Use the time when your lecture pauses during a presentation to review your notes. (For Unseen)", options: ["B", "D", "A"], ans: "D" }
                 ]
             },
             {
@@ -332,7 +331,7 @@
                 ]
             },
             {
-                title: "IV. Symbolize for the following abbreviations (Arrows & Notation)",
+                title: "IV. Symbolize for the following abbreviations",
                 questions: [
                     { type: 'special-radio', q: "as a result of consequences of", options: ["<----->", "-->", "+", "ff"], ans: "<----->" },
                     { type: 'special-radio', q: "resulting in", options: ["-->", "<----->", "ff", "*"], ans: "-->" },
@@ -347,7 +346,7 @@
                 ]
             },
             {
-                title: "V. Text/Chat Abbreviations",
+                title: "V. Symbolize for the following abbreviations",
                 questions: [
                     { type: 'input', q: "Achievement", ans: "ACH" },
                     { type: 'input', q: "All the best", ans: "ATB" },
@@ -368,7 +367,7 @@
             }
         ];
 
-        // Fisher-Yates Algorithm
+        // Fisher-Yates Shuffle Algorithm (Section တစ်ခုချင်းစီအတွင်းသာ ရောမွှေရန်)
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -394,7 +393,7 @@
                 header.innerText = section.title;
                 container.appendChild(header);
 
-                // Section အတွင်းပိုင်းကိုသာ သီးသန့် ရောမွှေသည်
+                // Section အတွင်းပိုင်း မေးခွန်းများကိုသာ ရောမွှေခြင်း
                 let shuffledSecQuestions = shuffleArray([...section.questions]);
                 totalQuestionsCount += shuffledSecQuestions.length;
 
@@ -450,15 +449,12 @@
                 if (item.type === 'radio' || item.type === 'special-radio') {
                     const selected = document.querySelector(`input[name="q_${index}"]:checked`);
                     userAns = selected ? selected.value : "";
-                    
-                    // Radio buttons များအတွက် ပုံမှန် တိုက်ရိုက်စစ်ဆေးခြင်း
                     isCorrect = (userAns === item.ans);
                 } else if (item.type === 'input') {
                     const inputElement = document.querySelector(`input[name="q_${index}"]`);
                     userAns = inputElement ? inputElement.value.trim() : "";
                     
-                    // CRITICAL: Case-Sensitive အဖြစ် အကြီးအသေးပါ တိတိကျကျ စစ်ဆေးခြင်း
-                    // .toLowerCase() အား ဖြုတ်လိုက်သဖြင့် စာလုံးအကြီးအသေး လွဲပါက မှားပါမည်။
+                    // Case-Sensitive အဖြစ် စာလုံးအကြီးအသေးပါ တိကျစွာ စစ်ဆေးခြင်း
                     isCorrect = (userAns === item.ans); 
                 }
 
