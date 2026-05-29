@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice For English</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Viewport Height */
+            background-color: #f5f6fa;
+            color: #2f3640;
+            overflow-x: hidden;
+        }
+
+        /* Header Setup */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #2c3e50;
+        }
+
+        /* Visitor Counter */
+        .visitor-counter {
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(44, 62, 80, 0.15);
+        }
+
+        #count {
+            color: #00ffcc;
+            font-weight: 700;
+            margin-left: 5px;
+        }
+
+        /* Main Content Container */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Fixed Footer က Content တွေကို ဖုံးမသွားစေဖို့ အောက်ခြေမှာ padding ပေးထားသည် */
+            padding: 40px 5% 80px 5%; 
+        }
+
+        /* Button Grid Layout */
+        .button-container {
+            display: grid;
+            width: 100%;
+            max-width: 1100px;
+            gap: 25px;
+        }
+
+        /* General Button Styles */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            border-radius: 16px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Button Gradient Colors */
+        .btn-fill { background: linear-gradient(135deg, #ff6b6b, #ee5253); }
+        .btn-correct { background: linear-gradient(135deg, #48dbfb, #0abde3); }
+        .btn-match { background: linear-gradient(135deg, #1dd1a1, #10ac84); }
+        .btn-yesno { background: linear-gradient(135deg, #feca57, #ff9f43); }
+
+        /* Continuous Wobble/Shake Animation */
+        @keyframes wobble {
+            0% { transform: translateX(0) rotate(0deg); }
+            15% { transform: translateX(-4px) rotate(-1deg); }
+            30% { transform: translateX(3px) rotate(1deg); }
+            45% { transform: translateX(-3px) rotate(-1deg); }
+            60% { transform: translateX(2px) rotate(1deg); }
+            75% { transform: translateX(-1px) rotate(0deg); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+
+        .btn { 
+            animation: wobble 2.5s infinite ease-in-out; 
+        }
+        
+        .btn:nth-child(2) { animation-delay: 0.3s; }
+        .btn:nth-child(3) { animation-delay: 0.6s; }
+        .btn:nth-child(4) { animation-delay: 0.9s; }
+
+        .btn:hover {
+            animation: wobble 0.5s infinite linear;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* =======================================================
+           FIXED FOOTER SETUP (View တွင် အမြဲပေါ်နေစေရန်)
+           ======================================================= */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #7f8c8d;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.95rem;
+            z-index: 1000; /* အမြဲတမ်း အပေါ်ဆုံးက ထပ်နေစေရန် */
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* အပေါ်ဘက်သို့ အရိပ်ထည့်ခြင်း */
+        }
+
+        /* =======================================================
+           LAPTOP & DESKTOP VIEW
+           ======================================================= */
+        @media (min-width: 769px) {
+            .button-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .btn {
+                height: 150px;
+                font-size: 1.4rem;
+            }
+        }
+
+        /* =======================================================
+           PHONE VIEW
+           ======================================================= */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px;
+                text-align: center;
+            }
+
+            h1 { font-size: 1.8rem; }
+            .visitor-counter { font-size: 0.9rem; padding: 8px 16px; }
+            main { padding: 20px 20px 80px 20px; } /* ဖုန်းတွင်လည်း အောက်ခြေပတ်ဒင်းပေးထားသည် */
+
+            .button-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .btn {
+                height: 75px;
+                font-size: 1.15rem;
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Practice For English</h1>
+        <div class="visitor-counter">
+            Visitors: <span id="count">0</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="button-container">
+            <a href="fill.html" class="btn btn-fill">Fill the Blank</a>
+            <a href="correct.html" class="btn btn-correct">Correct Order</a>
+            <a href="match.html" class="btn btn-match">Match</a>
+            <a href="yes.html" class="btn btn-yesno">Yes or No</a>
+        </div>
+    </main>
+
+    <footer>
+        Copyright@ Developed By Student Number 142
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let visitorCount = localStorage.getItem("page_view_count");
+            if (visitorCount === null) {
+                visitorCount = 1;
+            } else {
+                visitorCount = parseInt(visitorCount) + 1;
+            }
+            localStorage.setItem("page_view_count", visitorCount);
+            document.getElementById("count").textContent = visitorCount;
+        });
+    </script>
+</body>
+</html>

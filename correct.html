@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workplace English - Correct Order</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            padding-bottom: 40px;
+        }
+
+        /* Navigation Bar - Background White, Buttons Blue */
+        nav {
+            background-color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: block;
+        }
+
+        /* Nav container to ensure all 4 buttons fit horizontally on mobile */
+        .nav-container {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        nav a {
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #2980b9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        header h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        /* Score Dashboard */
+        .score-board {
+            background: #e8f4fd;
+            color: #2980b9;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        /* Quiz Section */
+        .quiz-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .question-block {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+
+        .question-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #34495e;
+        }
+
+        /* Word Tabs (Buttons) */
+        .word-pool {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+            min-height: 40px;
+        }
+
+        .word-tab {
+            background-color: #fff;
+            border: 2px solid #bdc3c7;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s;
+            font-size: 15px;
+        }
+
+        .word-tab:hover {
+            border-color: #3498db;
+            background-color: #f7f9fa;
+        }
+
+        .word-tab.used {
+            opacity: 0.3;
+            pointer-events: none;
+            background-color: #e0e0e0;
+            border-color: #d6dbdf;
+        }
+
+        /* Answer Area */
+        .answer-zone {
+            background: #fff;
+            border: 2px dashed #3498db;
+            padding: 12px;
+            border-radius: 8px;
+            min-height: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .answer-word {
+            background-color: #3498db;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 15px;
+            animation: fadeIn 0.2s;
+        }
+
+        .answer-word:hover {
+            background-color: #c0392b;
+        }
+
+        /* Results styling */
+        .result-status {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+        .correct { color: #27ae60; }
+        .wrong { color: #c0392b; }
+
+        /* Action Buttons */
+        .control-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-check {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .btn-check:hover { background-color: #219653; }
+
+        .btn-retry {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn-retry:hover { background-color: #c0392b; }
+
+        /* Responsive Design (Phone View) */
+        @media (max-width: 600px) {
+            nav {
+                padding: 10px 5px;
+            }
+            
+            .nav-container {
+                display: flex;
+                justify-content: space-between;
+                gap: 4px;
+            }
+            
+            nav a {
+                padding: 8px 4px;
+                margin: 0;
+                font-size: 11px; /* 4 ခုလုံး ဖုန်းမျက်နှာပြင်မှာ ကွက်တိဆန့်အောင် စာလုံးအရွယ်အစားညှိထားသည် */
+                flex: 1;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+            .container {
+                margin: 15px;
+                padding: 15px;
+            }
+
+            header h1 { font-size: 20px; }
+
+            .word-tab, .answer-word {
+                padding: 6px 10px;
+                font-size: 13px;
+            }
+            
+            .control-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar - White Background, Blue Buttons -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="active">Home</a>
+            <a href="fill.html">Close Type</a>
+            <a href="match.html">Match</a>
+            <a href="yes.html">Yes or No</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Subject - Workplace English</h1>
+            <p>Lecture - Daw Mon Mon Khaine</p>
+            <p style="margin-top: 8px; font-weight: bold; color: #34495e;">I. Put the words in the sentences into the correct order. (10 marks)</p>
+        </header>
+
+        <!-- Score Board -->
+        <div class="score-board">
+            Current Score: <span id="score-display">0</span> / 10 Marks
+        </div>
+
+        <!-- Quiz Container -->
+        <div class="quiz-container" id="quiz-container">
+            <!-- Questions will be dynamically loaded here via JS -->
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="control-buttons">
+            <button class="btn btn-check" onclick="checkAnswers()">Check Answers</button>
+            <button class="btn btn-retry" onclick="resetQuiz()">Try Again</button>
+        </div>
+    </div>
+
+    <script>
+        // File ထဲမှ မူရင်းမေးခွန်းများနှင့် အဖြေမှန်များ
+        const quizData = [
+            { id: 1, scrambled: "sorry moment busy but Mr at I'm Carter's line is the", correct: "I'm sorry but Mr Carter's line is busy at the moment." },
+            { id: 2, scrambled: "boss later will My call back", correct: "My boss will call back later." },
+            { id: 3, scrambled: "afraid on a he's business I'm trip", correct: "I'm afraid he's on a business trip." },
+            { id: 4, scrambled: "you back morning call Can tomorrow", correct: "Can you call back tomorrow morning?" },
+            { id: 5, scrambled: "put through the you to Sales I'll Department", correct: "I'll put you through to the Sales Department." },
+            { id: 6, scrambled: "Chairman It will an to our opportunity be for you meet", correct: "It will be an opportunity for you to meet our Chairman." },
+            { id: 7, scrambled: "Thursday like to would invite you meeting to a on We", correct: "We would like to invite you to a meeting on Thursday" },
+            { id: 8, scrambled: "lunch you like Would to come?", correct: "Would you like to come lunch?" },
+            { id: 9, scrambled: "hope able you We are to conference attend the", correct: "We hope you are able to attend the conference" },
+            { id: 10, scrambled: "Are o'clock free at 6 meeting you for a", correct: "Are you free at 6 o'clock for a meeting?" }
+        ];
+
+        let userAnswers = {};
+
+        // Array အား Random နေရာလွှဲပြောင်းပေးမည့် လုပ်ဆောင်ချက် (Fisher-Yates Shuffle)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // ဉာဏ်စမ်းပဟေဠိကို စတင်ဖန်တီးပေးသည့် လုပ်ဆောင်ချက်
+        function initQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            // မေးခွန်းများကို အပေါ်အောက် Random ရောမွှေရန်အတွက် quizData အား Shuffle လုပ်သည်
+            // သို့သော် မူရင်းနံပါတ်စဉ် (1 to 10) အတိုင်း မပြောင်းလဲစေရန် လုံခြုံစွာ ကိုင်တွယ်သည်
+            const shuffledQuiz = shuffleArray([...quizData]);
+
+            shuffledQuiz.forEach((q, index) => {
+                userAnswers[q.id] = [];
+                const words = q.scrambled.split(' ');
+
+                const block = document.createElement('div');
+                block.className = 'question-block';
+                block.id = `block-${q.id}`;
+
+                // ပြသမည့် မေးခွန်းနံပါတ်ကို loop index အတိုင်း စဉ်ပေးနိုင်သည် (သို့မဟုတ် q.id အတိုင်း ထားနိုင်သည်)
+                // ဤနေရာတွင် မေးခွန်းများကို Random ပြောင်းလဲမှု ပိုမိုသိသာစေရန် လက်ရှိ စဉ်ထားသော အစီအစဉ်အတိုင်း (index + 1) ပြပေးထားပါသည်
+                block.innerHTML = `
+                    <div class="question-title">Question ${index + 1}: Put in order:</div>
+                    <div class="word-pool" id="pool-${q.id}"></div>
+                    <div class="answer-zone" id="zone-${q.id}" placeholder="Click words above to build your sentence..."></div>
+                    <div class="result-status" id="status-${q.id}"></div>
+                `;
+
+                container.appendChild(block);
+
+                const pool = document.getElementById(`pool-${q.id}`);
+                words.forEach((word, wordIndex) => {
+                    const tab = document.createElement('span');
+                    tab.className = 'word-tab';
+                    tab.textContent = word;
+                    tab.setAttribute('data-word', word);
+                    tab.setAttribute('data-index', wordIndex);
+                    tab.onclick = () => selectWord(q.id, tab, word, wordIndex);
+                    pool.appendChild(tab);
+                });
+            });
+        }
+
+        function selectWord(qId, tabElement, word, index) {
+            tabElement.classList.add('used');
+            const zone = document.getElementById(`zone-${qId}`);
+            const wordId = `ans-${qId}-${index}`;
+
+            const ansWord = document.createElement('span');
+            ansWord.className = 'answer-word';
+            ansWord.id = wordId;
+            ansWord.textContent = word;
+            
+            ansWord.onclick = () => {
+                ansWord.remove();
+                tabElement.classList.remove('used');
+                userAnswers[qId] = userAnswers[qId].filter(item => item.index !== index);
+            };
+
+            zone.appendChild(ansWord);
+            userAnswers[qId].push({ word: word, index: index });
+        }
+
+        // စာကြောင်းများကို ပုံစံညှိရန် လုပ်ဆောင်ချက် (စာလုံးကြီး/သေး ပြောင်းခြင်းနှင့် အစက်အပြောက်/ပုဒ်ဖြတ်ပုဒ်ရပ်များ ဖယ်ရှားခြင်း)
+        function cleanText(text) {
+            return text
+                .toLowerCase()                      
+                .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?]/g, "") 
+                .replace(/\s+/g, " ")               
+                .trim();                            
+        }
+
+        // ပြင်ဆင်ထားသော အဖြေစစ်စနစ်
+        function checkAnswers() {
+            let totalScore = 0;
+
+            quizData.forEach((q) => {
+                const zone = document.getElementById(`zone-${q.id}`);
+                const statusDiv = document.getElementById(`status-${q.id}`);
+                
+                if (!zone) return; // random အစီအစဉ်ကြောင့် လုံခြုံရေးအတွက် စစ်ဆေးခြင်း
+
+                const currentAnswerNodes = zone.querySelectorAll('.answer-word');
+                let userSentence = [];
+                currentAnswerNodes.forEach(node => {
+                    userSentence.push(node.textContent);
+                });
+                
+                const finalUserSentence = userSentence.join(' ');
+
+                const cleanedUser = cleanText(finalUserSentence);
+                const cleanedTarget = cleanText(q.correct);
+
+                if (cleanedUser === cleanedTarget && cleanedUser !== "") {
+                    statusDiv.innerHTML = `✓ Correct! (Ans: ${q.correct})`;
+                    statusDiv.className = "result-status correct";
+                    totalScore++;
+                } else {
+                    statusDiv.innerHTML = `✗ Incorrect. (Correct Ans: ${q.correct})`;
+                    statusDiv.className = "result-status wrong";
+                }
+                statusDiv.style.display = 'block';
+            });
+
+            document.getElementById('score-display').textContent = totalScore;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Try Again နှိပ်လျှင် Page ကို Refresh မလုပ်တော့ဘဲ မေးခွန်းများကို Random ပြန်စီပြီး Quiz ကို Reset လုပ်ပေးရန်
+        function resetQuiz() {
+            // Score သုည ပြန်လုပ်မယ်
+            document.getElementById('score-display').textContent = 0;
+            // မေးခွန်းများကို အသစ်တစ်ဖန် ရောမွှေပြီး ပြန်ပွင့်စေမယ်
+            initQuiz();
+            // ထိပ်ဆုံးကို Scroll ဆွဲတင်ပေးမယ်
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
