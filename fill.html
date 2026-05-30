@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="my">
 <head>
     <meta charset="UTF-8">
@@ -208,15 +208,15 @@
         }
 
         .blank-input.correct {
-            border-bottom-color: var(--success-color);
-            color: var(--success-color);
-            background-color: var(--success-bg);
+            border-bottom-color: var(--success-color) !important;
+            color: var(--success-color) !important;
+            background-color: var(--success-bg) !important;
         }
 
         .blank-input.incorrect {
-            border-bottom-color: var(--danger-color);
-            color: var(--danger-color);
-            background-color: var(--danger-bg);
+            border-bottom-color: var(--danger-color) !important;
+            color: var(--danger-color) !important;
+            background-color: var(--danger-bg) !important;
         }
 
         .suggestion-box {
@@ -350,6 +350,7 @@
 
         <div class="quiz-container">
             
+            <!-- FORM 1 -->
             <div id="form1" class="form-content active-content">
                 <div class="dialogue-line">
                     <span class="speaker-name">John</span>
@@ -397,6 +398,7 @@
                 </div>
             </div>
 
+            <!-- FORM 2 -->
             <div id="form2" class="form-content">
                 <div class="dialogue-line">
                     <span class="speaker-name">John</span>
@@ -412,7 +414,7 @@
                 </div>
                 <div class="dialogue-line">
                     <span class="speaker-name">Jasmine</span>
-                    <span class="speaker-text">Yes! She travels a lot. I <div class="input-wrapper"><input type="text" class="blank-input" data-ans="book"><span class="suggestion-box">Ans: book</span></div> all her plane ticket and hotels.</span>
+                    <span class="speaker-text">Yes! She travels a lot. I <div class="input-wrapper"><input type="text" class="blank-input" data-ans="book"><span class="suggestion-box">Ans: book</span></div> all her plane tickets and hotels.</span>
                 </div>
                 <div class="dialogue-line">
                     <span class="speaker-name">John</span>
@@ -444,6 +446,7 @@
                 </div>
             </div>
 
+            <!-- FORM 3 -->
             <div id="form3" class="form-content">
                 <div class="dialogue-line">
                     <span class="speaker-name">John</span>
@@ -459,7 +462,7 @@
                 </div>
                 <div class="dialogue-line">
                     <span class="speaker-name">Jasmine</span>
-                    <span class="speaker-text">Yes! She <div class="input-wrapper"><input type="text" class="blank-input" data-ans="travels"><span class="suggestion-box">Ans: travels</span></div> a lot. I book all her plane tickets and hotels.</span>
+                    <span class="suggestion-box">Yes! She <div class="input-wrapper"><input type="text" class="blank-input" data-ans="travels"><span class="suggestion-box">Ans: travels</span></div> a lot. I book all her plane tickets and hotels.</span>
                 </div>
                 <div class="dialogue-line">
                     <span class="speaker-name">John</span>
@@ -528,8 +531,9 @@
             let currentBlanks = document.querySelectorAll(`#form${currentForm} .blank-input`);
             document.getElementById('max-score-text').innerText = currentBlanks.length;
 
-            // Hide Suggestions box on default switch
-            document.querySelectorAll(`#form${formNum} .suggestion-box`).forEach(box => box.style.display = 'none');
+            // Hide Suggestions box and reset colors
+            document.querySelectorAll('.suggestion-box').forEach(box => box.style.display = 'none');
+            document.querySelectorAll('.blank-input').forEach(input => input.classList.remove('correct', 'incorrect'));
         }
 
         function checkAnswers() {
@@ -538,11 +542,11 @@
             let score = 0;
 
             currentBlanks.forEach(input => {
-                let correctAnswer = input.getAttribute('data-ans').trim();
-                let userAnswer = input.value.trim();
+                let correctAnswer = input.getAttribute('data-ans').trim().toLowerCase();
+                let userAnswer = input.value.trim().toLowerCase();
 
-                // Case sensitive strict comparison matching rules
-                if (userAnswer === correctAnswer) {
+                // Validation Comparison Check
+                if (userAnswer === correctAnswer && userAnswer !== "") {
                     input.classList.remove('incorrect');
                     input.classList.add('correct');
                     score++;
@@ -551,7 +555,7 @@
                     input.classList.add('incorrect');
                 }
 
-                // Make the contextual pop-up answers box visible
+                // Make the contextual answer box visible
                 let suggestionBox = input.nextElementSibling;
                 if(suggestionBox) {
                     suggestionBox.style.display = 'block';
@@ -560,7 +564,7 @@
 
             document.getElementById('score-text').innerText = score;
 
-            // Page animations move layout viewport up onto header board cards safely
+            // Smooth viewport scroll to scorecard
             document.getElementById('score-section').scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
@@ -590,4 +594,3 @@
     </script>
 </body>
 </html>
-
